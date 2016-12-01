@@ -13,25 +13,43 @@
 @property (weak, nonatomic) IBOutlet UITextField *middleNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *noteTextField;
-@property (nonatomic, weak) NSString *messageString;
+//@property (nonatomic, weak) NSString *messageString;
 @end
 
 @implementation SetTextViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _noteTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
 }
 
 - (IBAction)saveTextAndChangeView:(id)sender {
+    NSMutableArray *messageString = [NSMutableArray arrayWithCapacity:6];
+    [messageString addObject:self.firstNameTextField.text];
+    [messageString addObject:self.middleNameTextField.text];
+    [messageString addObject:self.lastNameTextField.text];
+    [messageString addObject:self.noteTextField.text];
     if ([_delegate respondsToSelector:@selector(sendMessage:)])
     {
-        [ _delegate sendMessage:self.firstNameTextField.text];
+        [ _delegate sendMessage:messageString];
     }
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 
 }
 
 - (IBAction)clearTextButton:(id)sender {
+    self.firstNameTextField.text = @"";
+    self.middleNameTextField.text = @"";
+    self.lastNameTextField.text = @"";
+    self.noteTextField.text = @"";
+}
 
+- (IBAction)cancelButton:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

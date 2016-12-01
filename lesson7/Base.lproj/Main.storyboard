@@ -41,7 +41,6 @@
                                 </state>
                                 <connections>
                                     <action selector="changeView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EIZ-Gj-hgC"/>
-                                    <segue destination="Xcu-Ee-MjW" kind="modal" id="90k-RL-erX"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZr-Ha-cTd">
@@ -121,6 +120,9 @@
                     </view>
                     <connections>
                         <outlet property="firstNameLabel" destination="Bd8-1C-EP5" id="OdK-a1-FeU"/>
+                        <outlet property="lastNameLabel" destination="EPD-CR-UWv" id="p6S-5i-pYv"/>
+                        <outlet property="middleNameLabel" destination="vGX-19-ZYK" id="DAY-Xe-8Ew"/>
+                        <outlet property="noteLabel" destination="m87-eF-9Af" id="RqT-hj-OA3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -130,7 +132,7 @@
         <!--Set Text View Controller-->
         <scene sceneID="mx0-1e-7Iv">
             <objects>
-                <viewController id="Xcu-Ee-MjW" customClass="SetTextViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="set" id="Xcu-Ee-MjW" customClass="SetTextViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MS1-2A-xGa"/>
                         <viewControllerLayoutGuide type="bottom" id="BSk-59-as3"/>
@@ -210,13 +212,12 @@
                                 <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="saveTextAndChangeView:" destination="Xcu-Ee-MjW" eventType="touchUpInside" id="rF0-bk-z2h"/>
-                                    <segue destination="BYZ-38-t0r" kind="modal" id="I5u-eR-FRw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESD-a9-C0m">
                                 <state key="normal" title="Cancel"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="modal" id="dlt-Kw-7Ze"/>
+                                    <action selector="cancelButton:" destination="Xcu-Ee-MjW" eventType="touchUpInside" id="orA-EI-Z7h"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wN2-BC-gqZ">
@@ -286,14 +287,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wvq-ea-hG2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="847.20000000000005" y="776.76161919040487"/>
+            <point key="canvasLocation" x="796" y="777"/>
         </scene>
     </scenes>
     <resources>
         <image name="IMG_0815.JPG" width="750" height="937"/>
         <image name="background1.jpg" width="5267" height="7281"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="dlt-Kw-7Ze"/>
-    </inferredMetricsTieBreakers>
 </document>

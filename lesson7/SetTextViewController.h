@@ -10,7 +10,7 @@
 
 @protocol secondControllerDelegate <NSObject>
 
-- (void)sendMessage:(NSString *)msg;
+- (void)sendMessage:(NSMutableArray *)msg;
 
 @end
 
